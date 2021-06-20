@@ -10,7 +10,7 @@ const Toptab = () => {
   const insets = useSafeAreaInsets();
 
   return (
-    <Navigator style={{ marginTop: insets.top}}>
+    <Navigator style={{ paddingTop: insets.top}}>
       <Screen name="Profile" component={Profile} />
       <Screen name="List" component={Profile} />
     </Navigator>

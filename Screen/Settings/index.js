@@ -5,7 +5,6 @@ const Setting = props => {
   const {navigation} = props;
 
   const handleGoDepthSettings = () => {
-    console.log(navigation);
     navigation.push('depthSettings')
   };
 
