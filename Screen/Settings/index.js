@@ -1,12 +1,20 @@
 import React from 'react';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 
-const Setting = () => {
-  const insets = useSafeAreaInsets();
+const Setting = props => {
+  const {navigation} = props;
+
+  const handleGoDepthSettings = () => {
+    console.log(navigation);
+    navigation.push('depthSettings')
+  };
+
   return (
-     <View style={{marginTop: insets.top}}>
+    <View>
       <Text>Hello setting</Text>
+      <TouchableOpacity onPress={handleGoDepthSettings}>
+        <Text>Depth settings</Text>
+      </TouchableOpacity>
     </View>
   );
 };
