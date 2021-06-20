@@ -10,6 +10,7 @@ const {Screen, Navigator} = createBottomTabNavigator();
 
 const MainNavigation = () => (
   <Navigator
+    initialRouteName="Setting"
     screenOptions={({route}) => ({
       tabBarIcon: ({color, size}) => (
         <TabIcon route={route} color={color} size={size} />
