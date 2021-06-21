@@ -1,5 +1,5 @@
 import React from 'react'
-import {ActivityIndicator, useWindowDimensions, StyleSheet, View } from 'react-native'
+import {ActivityIndicator, useWindowDimensions, StyleSheet, View, ScrollView } from 'react-native'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import Carousel from 'react-native-snap-carousel'
 
@@ -25,7 +25,7 @@ const Movies = () => {
   }
 
   return (
-    <View>
+    <ScrollView>
       <View style={{paddingTop: top+10, ...styles.slider}}>
         <Carousel
           data={listMovies}
@@ -35,8 +35,10 @@ const Movies = () => {
           firstItem={10}
         />
       </View>
-      <MoviesCategory category="Junior" movies={listMovies} />
-    </View>
+      <MoviesCategory listTitle="Junior" category='upcoming' />
+      <MoviesCategory listTitle="Popular" category='popular' />
+      <MoviesCategory listTitle="Top Rated" category='top_rated' />
+    </ScrollView>
   )
 }
 

@@ -1,17 +1,28 @@
 import React from 'react'
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator,  FlatList, StyleSheet, Text, View } from 'react-native'
+import useMovies from '../../hooks/useMovies'
 
 // Components
 import MovieCard from '../CardMovies'
 
 const MoviesCategory = (props) => {
-	const {category, movies} = props
+	const {category, listTitle} = props
+
+	const {listMovies, isLoading} = useMovies(category)
+
+  if (isLoading) {
+    return (
+      <View style={styles.loader}>
+        <ActivityIndicator color="purple" size={600} />
+      </View>
+    )
+  }
 
 	return (
 		<View style={styles.listContainer}>
-			<Text style={styles.categorytitle}>{category}</Text>
+			<Text style={styles.categorytitle}>{listTitle}</Text>
 			<FlatList
-				data={movies}
+				data={listMovies}
 				renderItem={renderCardMovie}
 				keyExtractor={keyExtractor}
 				horizontal={true}
@@ -30,8 +41,8 @@ const keyExtractor = item => item.id.toString()
 
 const styles = StyleSheet.create({
 	listContainer: {
-		marginVertical: 15,
-		height: 280
+		marginVertical: 5,
+		height: 240
 	},
 	categorytitle: {
 		fontSize: 30,
