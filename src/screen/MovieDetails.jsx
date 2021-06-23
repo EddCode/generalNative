@@ -3,6 +3,7 @@ import {Dimensions, Image, ScrollView, StyleSheet, Text, View} from 'react-nativ
 
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import useMovies from '../hooks/useMovies'
+import CrewList from '../components/CrewList'
 
 const { height: screenHigth} = Dimensions.get('screen')
 
@@ -43,7 +44,9 @@ const MovieDetail = props => {
             size={20}
           />
         ))}
-
+      </View>
+      <View style={styles.marginContainer}>
+        <CrewList />
       </View>
     </ScrollView>
   )
