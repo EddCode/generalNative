@@ -1,5 +1,6 @@
 import React, {useRef} from 'react'
-import {Image, StyleSheet, Text, View} from 'react-native'
+import { useNavigation} from '@react-navigation/core'
+import {Image, StyleSheet, TouchableWithoutFeedback, View} from 'react-native'
 
 const MovieCard = (props) => {
 	const {
@@ -7,18 +8,26 @@ const MovieCard = (props) => {
 		width = 250,
 		movie: {
 			poster_path
-		}
+		},
+		movie
 	} = props
 
+	const nav = useNavigation()
 	const { current: cardStyles} = useRef(cardContainer({height, width}))
 
 	const imgURI = useRef(`https://image.tmdb.org/t/p/w500${poster_path}`)
 
+	const handleGoDetails = () => {
+		nav.navigate('details', movie)
+	}
+
 	return (
 		<View style={cardStyles.cardContainer}>
-			<View style={styles.cardImg}>
-				<Image source={{ uri: imgURI.current	}} style={styles.img} />
-			</View>
+			<TouchableWithoutFeedback onPress={handleGoDetails}>
+				<View style={styles.cardImg}>
+					<Image source={{ uri: imgURI.current	}} style={styles.img} />
+				</View>
+			</TouchableWithoutFeedback>
 		</View>
 	)
 }

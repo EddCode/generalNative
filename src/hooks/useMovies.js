@@ -1,21 +1,33 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import movieDB from '../api/movies'
 
-const useMovies = (movieType = 'now_playing') => {
+const useMovies = (movieType = 'now_playing', resource = 'listMovies') => {
   const [isLoading, setIsLoading] = useState(true)
   const [movies, setMovies] = useState([])
 
+  const resources = useRef({
+    crew: async () => {
+      const {data} = await movieDB.get(`/${movieType}`)
+      setMovies(data.crew)
+      setIsLoading(false)
+    },
+    details: async () => {
+      const {data} = await movieDB.get(`/${movieType}`)
+      setMovies(data)
+      setIsLoading(false)
+    },
+    listMovies: async () => {
+      const {data} = await movieDB.get(`/${movieType}`)
+      setMovies(data.results)
+      setIsLoading(false)
+    }
+  })
+
   useEffect(() => {
-    getMovies()
-  }, [])
+    resources.current[resource]()
+  }, [resource])
 
-  const getMovies = async () => {
-    const {data} = await movieDB.get(`/${movieType}`)
-    setMovies(data.results)
-    setIsLoading(false)
-  }
-
-  return {listMovies: movies, isLoading}
+  return {[resource]: movies, isLoading}
 }
 
 export default useMovies
