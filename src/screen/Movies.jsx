@@ -9,6 +9,7 @@ import MovieCard from '../components/CardMovies'
 
 // Hooks
 import useMovies from '../hooks/useMovies'
+import GradientBackground from '../components/GradientBackground'
 
 
 const Movies = () => {
@@ -25,20 +26,22 @@ const Movies = () => {
   }
 
   return (
-    <ScrollView>
-      <View style={{paddingTop: top+10, ...styles.slider}}>
-        <Carousel
-          data={listMovies}
-          renderItem={renderCard}
-          sliderWidth={screenWidth}
-          itemWidth={240}
-          firstItem={10}
-        />
-      </View>
-      <MoviesCategory listTitle="Junior" category='upcoming' />
-      <MoviesCategory listTitle="Popular" category='popular' />
-      <MoviesCategory listTitle="Top Rated" category='top_rated' />
-    </ScrollView>
+    <GradientBackground>
+       <ScrollView>
+         <View style={{paddingTop: top+10, ...styles.slider}}>
+           <Carousel
+             data={listMovies}
+             renderItem={renderCard}
+             sliderWidth={screenWidth}
+             itemWidth={240}
+             firstItem={10}
+           />
+         </View>
+         <MoviesCategory listTitle="Junior" category='upcoming' />
+         <MoviesCategory listTitle="Popular" category='popular' />
+         <MoviesCategory listTitle="Top Rated" category='top_rated' />
+       </ScrollView>
+    </GradientBackground>
   )
 }
 
