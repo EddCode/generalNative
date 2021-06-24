@@ -2,6 +2,7 @@ import React from 'react'
 import {ActivityIndicator, useWindowDimensions, StyleSheet, View, ScrollView } from 'react-native'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import Carousel from 'react-native-snap-carousel'
+import imageColors from 'react-native-image-colors'
 
 // Components
 import MoviesCategory from '../components/MoviesCategory'
@@ -16,6 +17,15 @@ const Movies = () => {
   const { width: screenWidth} = useWindowDimensions()
   const {top} = useSafeAreaInsets()
   const {listMovies, isLoading} = useMovies()
+
+  const getPosterColors = async (idx) => {
+    const movie = listMovies[idx]
+    const imgUri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+    const colors =await imageColors.getColor(uri, {quality: 'highest'})
+    console.log(colors)
+  }
+
+  const posterMovie = idx => getPosterColors(idx)
 
   if (isLoading) {
     return (
@@ -35,6 +45,7 @@ const Movies = () => {
              sliderWidth={screenWidth}
              itemWidth={240}
              firstItem={10}
+             onSnapToItem={posterMovie}
            />
          </View>
          <MoviesCategory listTitle="Junior" category='upcoming' />
