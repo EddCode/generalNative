@@ -1,9 +1,10 @@
 import React, {useRef} from 'react'
-import {Dimensions, Image, ScrollView, StyleSheet, Text, View} from 'react-native'
+import {ActivityIndicator, Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+
+import useMovies from '../hooks/useMovies'
 
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import useMovies from '../hooks/useMovies'
-import CrewList from '../components/CrewList'
+import FullMovie from '../components/MovieDetail'
 
 const { height: screenHigth} = Dimensions.get('screen')
 
@@ -16,13 +17,19 @@ const MovieDetail = props => {
         original_title,
         title
       },
-    }
+    },
+    navigation
   } = props
 
-  const movieDetail = useMovies(id, 'details')
-  const movieCredits = useMovies(`${id}/credits`, 'crew')
+
+  const {details, isLoading} = useMovies(id, 'details')
+  const {crew} = useMovies(`${id}/credits`, 'crew')
 
   const imgURI = useRef(`https://image.tmdb.org/t/p/w500${poster_path}`)
+
+  const handleBack = () => {
+    navigation.popToTop()
+  }
 
   return (
     <ScrollView>
@@ -35,19 +42,14 @@ const MovieDetail = props => {
         <Text style={styles.subtitle}>{original_title}</Text>
         <Text style={styles.title}>{title}</Text>
       </View>
-      <View style={[styles.marginContainer, styles.rating]}>
-        {[1,2,3,4,5].map(icon => (
-          <Icon
-            key={icon}
-            style={styles.ratingIcon}
-            name="star"
-            size={20}
-          />
-        ))}
-      </View>
-      <View style={styles.marginContainer}>
-        <CrewList />
-      </View>
+        {
+          isLoading
+            ? <ActivityIndicator />
+            : <FullMovie details={details} crew={crew} />
+        }
+      <TouchableOpacity style={styles.backIcon} onPress={handleBack}>
+        <Icon  name="arrow-left" size={40} color="#FFF" style={{opacity: .9}}/>
+      </TouchableOpacity>
     </ScrollView>
   )
 }
@@ -85,7 +87,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   subtitle: {
-    opacity: .8,
+    opacity: .5,
     fontSize: 18,
     marginBottom: 4
   },
@@ -93,8 +95,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row'
   },
-  ratingIcon: {
-    marginHorizontal: 5
+  backIcon: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    color: '#FFF',
+    elevation: 9,
+    zIndex: 1
   }
 })
 

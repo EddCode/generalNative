@@ -5,7 +5,7 @@ import CardActor from '../CardActor'
 
 const CrewList = (props) => {
 	const {crew} = props
-	console.log("===>")
+
 	return (
 		<FlatList
 			data={crew}
@@ -18,10 +18,10 @@ const CrewList = (props) => {
 }
 
 const renderActor = ({item}) => (
-  <CardActor movie={item} width={100} height={180}/>
+  <CardActor actor={item} />
 )
 
-const keyExtractor = item => item.id.toString()
+const keyExtractor = item => item.credit_id
 
 
 export default CrewList

@@ -17,7 +17,7 @@ const MainNavigation = () => {
 
 const screenOptions = {
   cardStyle: {
-    backgroundColor: '#FFF'
+    //backgroundColor: '#FFF'
   }
 }
 
