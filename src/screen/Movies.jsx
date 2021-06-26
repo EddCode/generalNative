@@ -1,8 +1,7 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
 import {ActivityIndicator, useWindowDimensions, StyleSheet, View, ScrollView } from 'react-native'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import Carousel from 'react-native-snap-carousel'
-import imageColors from 'react-native-image-colors'
 
 // Components
 import MoviesCategory from '../components/MoviesCategory'
@@ -11,6 +10,8 @@ import MovieCard from '../components/CardMovies'
 // Hooks
 import useMovies from '../hooks/useMovies'
 import GradientBackground from '../components/GradientBackground'
+import {getColorsImg} from '../helpers/colors'
+import {GradientContext} from '../Context/GradientColors'
 
 
 const Movies = () => {
@@ -18,11 +19,18 @@ const Movies = () => {
   const {top} = useSafeAreaInsets()
   const {listMovies, isLoading} = useMovies()
 
+  // Context
+  const { setCurrentColors } = useContext(GradientContext)
+
+  useEffect(() => {
+    listMovies.length && getPosterColors(10)
+  }, [listMovies])
+
   const getPosterColors = async (idx) => {
     const movie = listMovies[idx]
     const imgUri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    const colors =await imageColors.getColor(uri, {quality: 'highest'})
-    console.log(colors)
+    const {primary, secondary} = await getColorsImg(imgUri)
+    setCurrentColors({primary, secondary})
   }
 
   const posterMovie = idx => getPosterColors(idx)
@@ -30,7 +38,7 @@ const Movies = () => {
   if (isLoading) {
     return (
       <View style={styles.loader}>
-        <ActivityIndicator color="purple" size={600} />
+        <ActivityIndicator color="purple" size={40} />
       </View>
     )
   }

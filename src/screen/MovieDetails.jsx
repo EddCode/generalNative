@@ -2,6 +2,7 @@ import React, {useRef} from 'react'
 import {ActivityIndicator, Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 
 import useMovies from '../hooks/useMovies'
+import { buildImgURL } from '../helpers/buildImgUrl'
 
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import FullMovie from '../components/MovieDetail'
@@ -25,7 +26,7 @@ const MovieDetail = props => {
   const {details, isLoading} = useMovies(id, 'details')
   const {crew} = useMovies(`${id}/credits`, 'crew')
 
-  const imgURI = useRef(`https://image.tmdb.org/t/p/w500${poster_path}`)
+  const imgURI = useRef(buildImgURL(poster_path))
 
   const handleBack = () => {
     navigation.popToTop()
@@ -44,7 +45,7 @@ const MovieDetail = props => {
       </View>
         {
           isLoading
-            ? <ActivityIndicator />
+            ? <ActivityIndicator size={20}/>
             : <FullMovie details={details} crew={crew} />
         }
       <TouchableOpacity style={styles.backIcon} onPress={handleBack}>

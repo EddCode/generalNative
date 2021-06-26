@@ -3,12 +3,15 @@ import React from 'react'
 import {NavigationContainer} from '@react-navigation/native'
 
 import StackNavigator from './src/navigation/Navigation'
+import GradientProvider from './src/Context/GradientColors'
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <StackNavigator />
-    </NavigationContainer>
+    <GradientProvider>
+      <NavigationContainer>
+        <StackNavigator />
+      </NavigationContainer>
+    </GradientProvider>
   )
 }
 
