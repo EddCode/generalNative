@@ -4,14 +4,14 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import Carousel from 'react-native-snap-carousel'
 
 // Components
-import MoviesCategory from '../components/MoviesCategory'
-import MovieCard from '../components/CardMovies'
+import MoviesCategory from '../../components/MoviesCategory'
+import MovieCard from '../../components/CardMovies'
 
 // Hooks
-import useMovies from '../hooks/useMovies'
-import GradientBackground from '../components/GradientBackground'
-import {getColorsImg} from '../helpers/colors'
-import {GradientContext} from '../Context/GradientColors'
+import useMovies from '../../hooks/useMovies'
+import GradientBackground from '../../components/GradientBackground'
+import {getColorsImg} from '../../helpers/colors'
+import {GradientContext} from '../../Context/GradientColors'
 
 
 const Movies = () => {
@@ -56,9 +56,10 @@ const Movies = () => {
              onSnapToItem={posterMovie}
            />
          </View>
-         <MoviesCategory listTitle="Junior" category='upcoming' />
-         <MoviesCategory listTitle="Popular" category='popular' />
+         <MoviesCategory listTitle="Upcoming" category='upcoming' />
          <MoviesCategory listTitle="Top Rated" category='top_rated' />
+         <MoviesCategory listTitle="Popular" category='popular' />
+         <MoviesCategory listTitle="Latest" category='latest' />
        </ScrollView>
     </GradientBackground>
   )

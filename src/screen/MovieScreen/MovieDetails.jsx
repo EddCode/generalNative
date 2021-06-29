@@ -1,11 +1,11 @@
 import React, {useRef} from 'react'
 import {ActivityIndicator, Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native'
-
-import useMovies from '../hooks/useMovies'
-import { buildImgURL } from '../helpers/buildImgUrl'
-
 import Icon from 'react-native-vector-icons/FontAwesome5'
-import FullMovie from '../components/MovieDetail'
+
+import useMovies from '../../hooks/useMovies'
+import { buildImgURL } from '../../helpers/buildImgUrl'
+
+import FullMovie from '../../components/MovieDetail'
 
 const { height: screenHigth} = Dimensions.get('screen')
 

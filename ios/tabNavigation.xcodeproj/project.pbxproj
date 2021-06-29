@@ -234,6 +234,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-419",
+				"en-GB",
 			);
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
@@ -500,6 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4P5A36JKDA;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = tabNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -526,6 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4P5A36JKDA;
 				INFOPLIST_FILE = tabNavigation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

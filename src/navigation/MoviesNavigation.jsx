@@ -1,8 +1,8 @@
 import React from 'react'
 import {createStackNavigator} from '@react-navigation/stack'
 
-import MoviesScreen from '../screen/Movies'
-import MovieDetailScreen from '../screen/MovieDetails'
+import MoviesScreen from '../screen/MovieScreen/Movies'
+import MovieDetailScreen from '../screen/MovieScreen/MovieDetails'
 
 const {Navigator, Screen} = createStackNavigator()
 
