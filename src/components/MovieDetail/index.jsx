@@ -1,6 +1,8 @@
 import React, {useRef} from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 
+import i18n from '../../i18n/i18n'
+
 import Icon from 'react-native-vector-icons/FontAwesome5'
 import CrewList from '../CrewList'
 
@@ -23,16 +25,16 @@ const MovieDetail = (props) => {
 				<Text>{details.genres.map(g  => g.name).join(', ')}</Text>
 			</View>
 			<View style={{marginTop: 20}}>
-				<Text style={styles.titleSection}>Historia</Text>
+				<Text style={styles.titleSection}>{i18n.t('movieDetail.history')}</Text>
 				<Text style={{ paddingHorizontal: 20}}>{details.overview}</Text>
 			</View>
 			<View style={styles.detailsContainer}>
 				<View style={styles.row}>
-					<Text style={styles.moneyTitle}>Presupuesto</Text>
+					<Text style={styles.moneyTitle}>{i18n.t('movieDetail.budget')}</Text>
 					<Text>{budget.current}</Text>
 				</View>
 				<View style={styles.row}>
-					<Text style={styles.moneyTitle}>Ingresos</Text>
+					<Text style={styles.moneyTitle}>{i18n.t('movieDetail.revenue')}</Text>
 					<Text>{revenue.current}</Text>
 				</View>
 			</View>

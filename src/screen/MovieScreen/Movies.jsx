@@ -3,6 +3,8 @@ import {ActivityIndicator, useWindowDimensions, StyleSheet, View, ScrollView } f
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
 import Carousel from 'react-native-snap-carousel'
 
+import i18n from '../../i18n/i18n'
+
 // Components
 import MoviesCategory from '../../components/MoviesCategory'
 import MovieCard from '../../components/CardMovies'
@@ -56,10 +58,10 @@ const Movies = () => {
              onSnapToItem={posterMovie}
            />
          </View>
-         <MoviesCategory listTitle="Upcoming" category='upcoming' />
-         <MoviesCategory listTitle="Top Rated" category='top_rated' />
-         <MoviesCategory listTitle="Popular" category='popular' />
-         <MoviesCategory listTitle="Latest" category='latest' />
+         <MoviesCategory listTitle={i18n.t('homeScreen.upcoming')} category='upcoming' />
+         <MoviesCategory listTitle={i18n.t('homeScreen.topRated')} category='top_rated' />
+         <MoviesCategory listTitle={i18n.t('homeScreen.popular')} category='popular' />
+         <MoviesCategory listTitle={i18n.t('homeScreen.latest')} category='latest' />
        </ScrollView>
     </GradientBackground>
   )
