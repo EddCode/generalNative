@@ -1,22 +1,35 @@
 import React from 'react'
 import {Animated, Button, Text, StyleSheet, View} from 'react-native'
 
-import useFade from '../../hooks/useFade'
+import i18n from '../../i18n/i18n'
+
+import useAnimation from '../../hooks/useAnimation'
+import Title from '../CustomTitle'
 
 const Animation101 = () => {
-	const {fadeIn, fadeOut, opacity} = useFade(400, 0)
+	const {fadeIn, fadeOut, bounce, opacity, transition} = useAnimation({
+		transition: -400, transitionDuration: 1000
+	})
+
+	const handleShowBox = () => {
+		fadeIn()
+		bounce()
+	}
 
 	return (
 		<View style={style.container}>
-			<Text style={style.title}> Animation 101</Text>
+			<Title title={i18n.t('components.navigation.animation101')} marginBottom={{marginBottom:0}}/>
 			<Animated.View
 				style={[
 					style.item,
-					{opacity: opacity}
+					{
+						opacity: opacity,
+						transform: [{translateY: transition}]
+					}
 				]}
 			/>
 			<View>
-				<Button title="Fade In View" onPress={fadeIn}/>
+				<Button title="Fade In View" onPress={handleShowBox}/>
 				<Button title="Fade Out View" onPress={fadeOut} />
 			</View>
 

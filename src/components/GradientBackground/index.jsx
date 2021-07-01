@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useRef, useState} from 'react'
 import {Animated, StyleSheet, View} from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import {GradientContext} from '../../Context/GradientColors'
-import useFade from '../../hooks/useFade'
+import useAnimation from '../../hooks/useAnimation'
 
 const GradientBackground = ({children}) => {
 	const {
@@ -20,7 +20,7 @@ const GradientBackground = ({children}) => {
 	const {current: gradientStart} = useRef({x: 0.1, y: 0.1})
 	const {current: gradientEnd} = useRef({x: 0.5, y: 0.7})
 
-	const {fadeIn, fadeOut, opacity} = useFade(200, 0)
+	const {fadeIn, fadeOut, animation: opacity} = useAnimation(200, 0)
 
 	useEffect(() => {
 		fadeIn(fadeInCB)

@@ -1,9 +1,12 @@
-import {useNavigation} from '@react-navigation/native'
 import React from 'react'
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {useNavigation} from '@react-navigation/native'
+import { StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
-import { globalStyles } from '../../theme/appTheme'
+import i18n from '../../i18n/i18n'
+
+import Title from '../CustomTitle'
+
 
 const style = StyleSheet.create({
 	listItem: {
@@ -28,9 +31,7 @@ const style = StyleSheet.create({
 })
 
 export const ListHeader = () => (
-	<View style={style.marginBottom}>
-		<Text style={globalStyles.title} >Menu Options</Text>
-	</View>
+	<Title marginBottom={style.marginBottom} title={i18n.t('components.mainTitle')} />
 )
 
 export const renderItem = ({item}) => <FlatMenuItem item={item}/>

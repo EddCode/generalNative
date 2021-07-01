@@ -13,5 +13,12 @@ export default {
     history: 'History',
     budget: 'Budget',
     revenue: 'Revenue'
+  },
+  components: {
+    mainTitle: 'Menu options',
+    navigation: {
+      animation101: 'Animacion 101',
+      animation102: 'Animacion 102'
+    }
   }
 }

@@ -1,15 +1,18 @@
 import React from 'react'
-import {Button, StyleSheet, Text, View} from 'react-native'
+import {Animated, StyleSheet, View} from 'react-native'
+import useAnimation from '../../hooks/useAnimation'
+
+import i18n from '../../i18n/i18n'
+
+import Title from '../CustomTitle'
 
 const Animation102 = () => {
+	const {pan, panResponder} = useAnimation()
+
 	return (
 		<View style={style.container}>
-			<Text>Amimation 102</Text>
-			<View style={style.item}/>
-			<View>
-				<Button title="Fade In View"/>
-				<Button title="Fade Out View"/>
-			</View>
+			<Title title={i18n.t('components.navigation.animation102')} marginBottom={{marginBottom:0}}/>
+			<Animated.View style={[pan.getLayout(), style.item]} {...panResponder.panHandlers} />
 		</View>
 	)
 }
