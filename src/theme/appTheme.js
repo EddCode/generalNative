@@ -1,6 +1,11 @@
-import { StyleSheet} from 'react-native'
+import {StyleSheet} from 'react-native'
 
 export const globalStyles = StyleSheet.create({
+  componentScreen: {
+    flex: 1,
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  },
   margin: {
     marginHorizontal: 20
   },

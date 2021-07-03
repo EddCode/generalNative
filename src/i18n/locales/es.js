@@ -18,7 +18,8 @@ export default {
     mainTitle: 'Opciones de menu',
     navigation: {
       animation101: 'Animation 101',
-      animation102: 'Animation 102'
+      animation102: 'Animation 102',
+      switches: 'Switches'
     }
   }
 }

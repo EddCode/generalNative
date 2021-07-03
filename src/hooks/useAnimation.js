@@ -38,17 +38,21 @@ const useAnimation = ({
 
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
-    onPanResponderMove: Animated.event([
-      null,
-      {
-        dx: pan.x,
-        dy: pan.y
-      }
-    ]),
+    onPanResponderMove: Animated.event(
+      [
+        null,
+        {
+          dx: pan.x,
+          dy: pan.y
+        }
+      ],
+      {useNativeDriver: false}
+    ),
     onPanResponderRelease: () => {
       Animated.spring(pan, {
         useNativeDriver: true,
-        toValue: {x: 0, y: 0}
+        toValue: {x: 0, y: 0},
+        useNativeDriver: false
       }).start()
     }
   })
