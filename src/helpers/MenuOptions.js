@@ -15,5 +15,10 @@ export const menuOptions = [
     name: i18n.t('components.navigation.switches'),
     icon: 'toggle-on',
     component: 'Switch'
+  },
+  {
+    name: i18n.t('components.navigation.alert'),
+    icon: 'exclamation-circle',
+    component: 'Alert'
   }
 ]

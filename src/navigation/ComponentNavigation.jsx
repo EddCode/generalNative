@@ -7,6 +7,7 @@ import MainScreen from '../screen/ComponentsScreen'
 import Animation101 from '../components/Animation/101'
 import Animation102 from '../components/Animation/102'
 import Switch from '../screen/ComponentsScreen/SwitchScreen'
+import AlertScreen from '../screen/ComponentsScreen/Alert'
 
 
 const {Navigator, Screen} = createStackNavigator()
@@ -32,6 +33,11 @@ const ComponentsNavigator = () => (
          name="Switch"
          options={{title: i18n.t('components.navigation.switches')}}
          component={Switch}
+      />
+      <Screen
+         name="Alert"
+         options={{title: i18n.t('components.navigation.switches')}}
+         component={AlertScreen}
       />
    </Navigator>
 )

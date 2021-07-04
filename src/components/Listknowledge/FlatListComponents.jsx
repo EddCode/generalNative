@@ -4,8 +4,8 @@ import { StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5'
 
 import i18n from '../../i18n/i18n'
-
 import Title from '../CustomTitle'
+import {globalStyles} from '../../theme/appTheme'
 
 
 const style = StyleSheet.create({
@@ -48,7 +48,7 @@ const FlatMenuItem = ({item}) => {
 	return (
 		<TouchableOpacity activeOpacity={0.3} onPress={handleNavigate}>
 			<View style={style.listItem}>
-				<Icon size={23} name={item.icon} color="gray" />
+				<Icon size={23} name={item.icon} color={globalStyles.mainColor.color} />
 				<Text style={style.itemText} >{item.name}</Text>
 				<View style={{flex: 1}} />
 				<Icon size={23} name="chevron-right" color="gray" />

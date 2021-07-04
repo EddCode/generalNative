@@ -19,7 +19,15 @@ export default {
     navigation: {
       animation101: 'Animacion 101',
       animation102: 'Animacion 102',
-      switches: 'Switches'
+      switches: 'Switches',
+      alert: 'Alert'
+    },
+    alert: {
+      title: 'Alert title',
+      dispatchAlert: 'Show alert',
+      cancel: 'Cancel',
+      accept: 'Accept',
+      alertMessage: 'Lorem ipsum dolor'
     }
   }
 }
