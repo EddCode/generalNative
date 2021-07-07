@@ -20,5 +20,10 @@ export const menuOptions = [
     name: i18n.t('components.navigation.alert'),
     icon: 'exclamation-circle',
     component: 'Alert'
+  },
+  {
+    name: i18n.t('components.navigation.inputs'),
+    icon: 'keyboard',
+    component: 'Input'
   }
 ]

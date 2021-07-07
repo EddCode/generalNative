@@ -20,14 +20,24 @@ export default {
       animation101: 'Animacion 101',
       animation102: 'Animacion 102',
       switches: 'Switches',
-      alert: 'Alert'
+      alert: 'Alert',
+      inputs: 'Inputs'
     },
     alert: {
       title: 'Alert title',
       dispatchAlert: 'Show alert',
+      dispatchPrompt: 'Show prompt',
       cancel: 'Cancel',
       accept: 'Accept',
-      alertMessage: 'Lorem ipsum dolor'
+      alertMessage: 'Lorem ipsum dolor',
+      promptTitle: 'Enter secret',
+      promptText: 'Enter your password to claim your $1.5B in lottery winnings'
+    },
+    input: {
+      name: 'FullName',
+      email: 'Email',
+      phone: 'Phone number',
+      data: 'Result'
     }
   }
 }
