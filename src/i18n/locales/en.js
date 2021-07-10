@@ -21,7 +21,8 @@ export default {
       animation102: 'Animacion 102',
       switches: 'Switches',
       alert: 'Alert',
-      inputs: 'Inputs'
+      inputs: 'Inputs',
+      refresh: 'Refresh control'
     },
     alert: {
       title: 'Alert title',

@@ -25,5 +25,10 @@ export const menuOptions = [
     name: i18n.t('components.navigation.inputs'),
     icon: 'keyboard',
     component: 'Input'
+  },
+  {
+    name: i18n.t('components.navigation.refresh'),
+    icon: 'sync',
+    component: 'Refresh'
   }
 ]
