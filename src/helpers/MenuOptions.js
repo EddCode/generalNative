@@ -32,8 +32,13 @@ export const menuOptions = [
     component: 'Refresh'
   },
   {
-    name: 'modal',
+    name: 'Modal',
     icon: 'window-restore',
     component: 'Modal'
+  },
+  {
+    name: i18n.t('components.intinitSceoll.title'),
+    icon: 'cloud-download-alt',
+    component: 'InfinitScoll'
   }
 ]

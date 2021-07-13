@@ -45,6 +45,9 @@ export default {
       text: 'cuerpo del modal',
       openModal: 'Abrir moadl',
       btn: 'Cerrar'
+    },
+    infinitScroll: {
+      title: 'Scoll infinito'
     }
   }
 }

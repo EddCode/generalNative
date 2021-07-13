@@ -45,6 +45,9 @@ export default {
       text: 'body modal',
       open: 'Open modal',
       close: 'Close'
+    },
+    infiniteScroll: {
+      title: 'Infinit scroll'
     }
   }
 }

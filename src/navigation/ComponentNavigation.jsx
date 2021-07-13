@@ -11,6 +11,7 @@ import AlertScreen from '../screen/ComponentsScreen/Alert'
 import InputScreen from '../screen/ComponentsScreen/Input'
 import RefreshScreen  from '../screen/ComponentsScreen/Refresh'
 import ModalScreen  from '../screen/ComponentsScreen/Modal'
+import InfinitScroll  from '../screen/ComponentsScreen/InfinitScroll'
 
 
 const {Navigator, Screen} = createStackNavigator()
@@ -56,6 +57,11 @@ const ComponentsNavigator = () => (
          name="Modal"
          options={{title: i18n.t('components.navigation.modal')}}
          component={ModalScreen}
+      />
+      <Screen
+         name="InfinitScroll"
+         options={{title: i18n.t('components.navigation.modal')}}
+         component={InfinitScroll}
       />
    </Navigator>
 )
