@@ -10,6 +10,7 @@ import Switch from '../screen/ComponentsScreen/SwitchScreen'
 import AlertScreen from '../screen/ComponentsScreen/Alert'
 import InputScreen from '../screen/ComponentsScreen/Input'
 import RefreshScreen  from '../screen/ComponentsScreen/Refresh'
+import ModalScreen  from '../screen/ComponentsScreen/Modal'
 
 
 const {Navigator, Screen} = createStackNavigator()
@@ -50,6 +51,11 @@ const ComponentsNavigator = () => (
          name="Refresh"
          options={{title: i18n.t('components.navigation.refresh')}}
          component={RefreshScreen}
+      />
+      <Screen
+         name="Modal"
+         options={{title: i18n.t('components.navigation.modal')}}
+         component={ModalScreen}
       />
    </Navigator>
 )

@@ -30,5 +30,10 @@ export const menuOptions = [
     name: i18n.t('components.navigation.refresh'),
     icon: 'sync',
     component: 'Refresh'
+  },
+  {
+    name: 'modal',
+    icon: 'window-restore',
+    component: 'Modal'
   }
 ]

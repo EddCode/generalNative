@@ -39,6 +39,12 @@ export default {
       email: 'Correo Electronico',
       phone: 'Telefono',
       data: 'Resultado'
+    },
+    modal: {
+      title: 'Modal',
+      text: 'cuerpo del modal',
+      openModal: 'Abrir moadl',
+      btn: 'Cerrar'
     }
   }
 }

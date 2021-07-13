@@ -39,6 +39,12 @@ export default {
       email: 'Email',
       phone: 'Phone number',
       data: 'Result'
+    },
+    modal: {
+      title: 'Modal',
+      text: 'body modal',
+      open: 'Open modal',
+      close: 'Close'
     }
   }
 }
